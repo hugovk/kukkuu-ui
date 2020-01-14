@@ -2,12 +2,17 @@
 @import 'mixins';
 @import 'variables';
 @import 'fonts';
+@import 'layout';
 
 $logoHeight: 3rem;
 $logoWidth: 5rem;
 
 .footer {
   display: grid;
+
+  @include respond-below(sm) {
+    padding: 0 $basePadding;
+  }
 }
 
 .footerWrapper {
