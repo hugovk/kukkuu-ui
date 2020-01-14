@@ -21,9 +21,6 @@ exports[`Navbar render normally 1`] = `
     className="languageWrapper"
   >
     <LanguageBar />
-    <UserDropdown
-      isSmallScreen={false}
-    />
   </div>
 </div>
 `;
