@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import classnames from 'classnames';
 
 import styles from './home.module.scss';
-import HomePreliminaryForm from './form/HomePreliminaryForm';
 import PageWrapper from '../app/layout/PageWrapper';
 import HomeHero from './hero/HomeHero';
 import HomeInstructions from './instructions/HomeInstructions';
@@ -32,7 +31,6 @@ const Home: FunctionComponent = () => {
           scrollToForm={() => scrollToForm(formRef)}
         />
         <HomeInstructions />
-        {!userHasProfile && <HomePreliminaryForm forwardRef={formRef} />}
         <HomePartners />
         <HomeContact />
       </div>

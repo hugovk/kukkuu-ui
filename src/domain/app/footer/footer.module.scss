@@ -1,39 +1,39 @@
-@import "colors";
-@import "mixins";
-@import "variables";
-@import "fonts";
+@import 'colors';
+@import 'mixins';
+@import 'variables';
+@import 'fonts';
 
 $logoHeight: 3rem;
 $logoWidth: 5rem;
 
 .footer {
-    display: grid;
+  display: grid;
 }
 
 .footerWrapper {
-    @include divider($hel-light);
-    position: relative;
-    display: grid;
-    align-items: center;
-    > div {
-        padding: 0;
-    }
+  @include divider($hel-light);
+  position: relative;
+  display: grid;
+  align-items: center;
+  > div {
+    padding: 0;
+  }
 }
 
 .helsinkiLogo {
-    @include helsinki-logo($hel-black);
-    background-position: center;
-    height: $logoHeight;
-    width: $logoWidth;
-    margin-bottom: $baseMargin;
+  @include helsinki-logo($hel-black);
+  background-position: center;
+  height: $logoHeight;
+  width: $logoWidth;
+  margin-bottom: $baseMargin;
 }
 
-.copyright{
-    border-top: 1px solid $hel-black;
-    padding-top: $basePadding;
+.copyright {
+  border-top: 1px solid $hel-black;
+  padding-top: $basePadding;
 
-    p {
-        margin: 0;
-        color: $hel-gray;
-    }
+  p {
+    margin: 0;
+    color: $footerGray;
+  }
 }

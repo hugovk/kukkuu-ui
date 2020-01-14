@@ -1,35 +1,35 @@
-@import "variables";
-@import "layout";
-@import "fonts";
+@import 'variables';
+@import 'layout';
+@import 'fonts';
 
 .wrapper {
-    padding-bottom: $largeMargin;
+  padding-bottom: $largeMargin;
 
-    display: grid;
-    grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;
 }
 
 .contact {
-    grid-column: 2;
-    padding: 0 3rem;
+  grid-column: 2;
+  padding: 0 3rem;
+  padding-bottom: $largeMargin;
 
-    h2 {
-        padding: $largeMargin 0;
-        text-align: center;
+  h2 {
+    padding: $largeMargin 0;
+    text-align: center;
+  }
+
+  .contactPersons {
+    display: grid;
+    text-align: center;
+    @include respond-above(sm) {
+      grid-template-columns: 1fr 1fr;
     }
 
-    .contactPersons {
-        display: grid;
-        text-align: center;
-        @include respond-above(sm) {
-            grid-template-columns: 1fr 1fr;
-
-        }
-
-        p {
-            &:first-child {
-                font-size: $font-size-lg;
-            }
-        }
+    p {
+      &:first-child {
+        font-size: $font-size-lg;
+      }
     }
+  }
 }

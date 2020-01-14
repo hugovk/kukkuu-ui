@@ -114,7 +114,7 @@
         "text": "Helsinki Philharmonic Orchestra acts as the sponsor for Culture Kids born in 2020. Contact us to find out more about the Culture Kids programme for children born in 2020."
       },
       "heading": {
-        "text": "The Culture Kids service"
+        "text": "Contact us"
       },
       "service": {
         "name": "The Culture Kids service",
@@ -176,7 +176,11 @@
     "hero": {
       "buttonText": "Register",
       "descriptionText": "All children born in Helsinki after 2020 are invited to become Culture Kids. The kids are invited to two events each year until they start school. These events are free of charge.",
-      "heading": "Culture Kids"
+      "heading": "Culture Kids",
+      "underConstruction": {
+        "text": "Welcome to the Culture Kids programme! Unfortunately the sign up has not yet been open. You can sign up your child starting January 31st 2020.",
+        "heading": "Signing up begins January 31, 2020"
+      }
     },
     "preliminaryForm": {
       "childBirthdate": {

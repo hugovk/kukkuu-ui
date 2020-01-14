@@ -114,7 +114,7 @@
         "text": "Helsingin kaupunginorkesteri toimii 2020 syntyneiden kummina. Ota yhteyttä, jos haluat tietää lisää vuoden 2020 syntyneiden kummiohjelmasta."
       },
       "heading": {
-        "text": "Kulttuurin kummilapset -palvelu"
+        "text": "Ota yhteyttä"
       },
       "service": {
         "name": "Kulttuurin kummilapset -palvelu",
@@ -176,7 +176,11 @@
     "hero": {
       "buttonText": "Ilmoittaudu mukaan",
       "descriptionText": "Kaikki vuodesta 2020 eteenpäin syntyvät helsinkiläiset lapset kutsutaan kulttuurin kummilapsiksi. Kummilapset saavat kutsun vuosittain kahteen tapahtumaan, kunnes lapsi aloittaa koulun. Tapahtumat ovat maksuttomia.",
-      "heading": "Kulttuurin kummilapset"
+      "heading": "Kulttuurin kummilapset",
+      "underConstruction": {
+        "text": "Tervetuloa Kulttuurin kummilapset -palveluun! Ilmoittautuminen ei valitettavasti ole vielä auki. Voit ilmoittaa lapsen mukaan 31.1.2020 alkaen.",
+        "heading": "Ilmoittautuminen alkaa 31.1.2020"
+      }
     },
     "preliminaryForm": {
       "childBirthdate": {
