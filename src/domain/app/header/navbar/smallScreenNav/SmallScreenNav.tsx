@@ -5,7 +5,6 @@ import hamburgerMenu from '../../../../../assets/icons/svg/hamburgerMenu.svg';
 import close from '../../../../../assets/icons/svg/close.svg';
 import styles from './smallScreenNav.module.scss';
 import Icon from '../../../../../common/components/icon/Icon';
-import UserDropdown from '../../userDropdown/UserDropdown';
 import LanguageBar from '../languageBar/LanguageBar';
 
 const SmallScreenNav: React.FunctionComponent = props => {
@@ -54,7 +53,6 @@ const SmallScreenNav: React.FunctionComponent = props => {
               />
             </button>
           </div>
-          <UserDropdown isSmallScreen={true} />
           <LanguageBar className={styles.smallScreenNavLangBar} />
         </div>
       )}

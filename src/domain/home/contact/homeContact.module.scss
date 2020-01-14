@@ -22,9 +22,6 @@
   .contactPersons {
     display: grid;
     text-align: center;
-    @include respond-above(sm) {
-      grid-template-columns: 1fr 1fr;
-    }
 
     p {
       &:first-child {

@@ -17,11 +17,6 @@ const HomeContact: React.FunctionComponent = props => {
               kulttuurin.kummilapset@hel.fi
             </a>
           </div>
-          <div className={styles.godchild}>
-            <h3>{t('home.contact.godchild.name')}</h3>
-            <p>{t('home.contact.godchild.text')}</p>
-            <a href="mailto:hkokummilapset@hel.fi">hkokummilapset@hel.fi</a>
-          </div>
         </div>
       </div>
     </section>
