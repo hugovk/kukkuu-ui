@@ -32,11 +32,9 @@ export const loginTunnistamo = (path?: string) => {
     });
 };
 
-// TODO Decide how logout should actually work - do we really want
-// to log people out of Tunnistamo itself?
 export const logoutTunnistamo = async () => {
   try {
-    await userManager.removeUser();
+    await userManager.signoutRedirect();
   } catch (e) {
     Sentry.captureException(e);
   }

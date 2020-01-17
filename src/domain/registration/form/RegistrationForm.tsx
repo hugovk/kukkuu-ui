@@ -307,7 +307,4 @@ const mapStateToProps = (state: StoreState) => ({
 
 export const UnconnectedRegistrationForm = RegistrationForm;
 
-export default connect(
-  mapStateToProps,
-  actions
-)(RegistrationForm);
+export default connect(mapStateToProps, actions)(RegistrationForm);

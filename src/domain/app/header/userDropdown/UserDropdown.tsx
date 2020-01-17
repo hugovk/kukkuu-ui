@@ -43,7 +43,6 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
       client.clearStore();
       // Log out
       logoutTunnistamo();
-      history.push('/');
     },
   };
 

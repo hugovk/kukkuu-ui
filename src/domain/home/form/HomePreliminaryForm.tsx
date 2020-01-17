@@ -177,7 +177,4 @@ const mapStateToProps = (state: StoreState) => {
 
 export const UnconnectedHomePreliminaryForm = HomePreliminaryForm;
 
-export default connect(
-  mapStateToProps,
-  actions
-)(HomePreliminaryForm);
+export default connect(mapStateToProps, actions)(HomePreliminaryForm);

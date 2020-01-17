@@ -55,7 +55,10 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
       <Modal
         isOpen={isOpen}
         label={nonEligible ? '' : label}
-        toggleModal={setIsOpen}
+        toggleModal={(value: boolean) => {
+          toggleNonEligible(false);
+          setIsOpen(value);
+        }}
         setFormIsFilling={setFormIsFilling}
       >
         {nonEligible ? (

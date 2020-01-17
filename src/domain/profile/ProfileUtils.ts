@@ -25,13 +25,7 @@ export const normalizeProfileDataFromMutation = (result: ExecutionResult) => {
 };
 
 export const normalizeProfileData = (data: ProfileQueryType) => {
-  if (
-    data &&
-    data.myProfile &&
-    data.myProfile.children &&
-    data.myProfile.children.edges &&
-    data.myProfile.children.edges[0]
-  ) {
+  if (data?.myProfile?.children) {
     return Object.assign(data.myProfile, {
       children: normalizeChildren(data.myProfile.children),
     });
@@ -41,7 +35,7 @@ export const normalizeProfileData = (data: ProfileQueryType) => {
 };
 
 export const normalizeChildren = (data: ProfileChildrenType) => {
-  if (!data || !data.edges) {
+  if (!data?.edges?.length) {
     return [];
   }
   const nodes = data.edges.map(edge => (edge ? edge.node : edge));

@@ -92,7 +92,4 @@ const actions = {
 };
 
 export const UnconnectedApp = App;
-export default connect(
-  mapStateToProps,
-  actions
-)(App);
+export default connect(mapStateToProps, actions)(App);

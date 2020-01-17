@@ -8,7 +8,7 @@ exports[`renders snapshot correctly 1`] = `
     isOpen={false}
     label="foo"
     setFormIsFilling={[Function]}
-    toggleModal={[MockFunction]}
+    toggleModal={[Function]}
   >
     <Formik
       initialValues={
