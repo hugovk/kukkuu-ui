@@ -109,10 +109,6 @@
   },
   "home": {
     "contact": {
-      "godchild": {
-        "name": "2020 syntyneiden kummitoiminta",
-        "text": "Helsingin kaupunginorkesteri toimii 2020 syntyneiden kummina. Ota yhteyttä, jos haluat tietää lisää vuoden 2020 syntyneiden kummiohjelmasta."
-      },
       "heading": {
         "text": "Ota yhteyttä"
       },
@@ -230,7 +226,10 @@
     }
   },
   "notFound": {
-    "text": "Etsimääsi sivua ei löytynyt"
+    "text": "Etsimääsi sivua ei löytynyt",
+    "return": {
+      "text": "Palaa palvelun etusivulle"
+    }
   },
   "partners": {
     "2020": "2020 syntyneet"

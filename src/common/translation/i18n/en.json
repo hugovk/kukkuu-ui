@@ -109,10 +109,6 @@
   },
   "home": {
     "contact": {
-      "godchild": {
-        "name": "Culture Kids activities for children born in 2020",
-        "text": "Helsinki Philharmonic Orchestra acts as the sponsor for Culture Kids born in 2020. Contact us to find out more about the Culture Kids programme for children born in 2020."
-      },
       "heading": {
         "text": "Contact us"
       },
@@ -230,7 +226,10 @@
     }
   },
   "notFound": {
-    "text": "The page you are looking for couldn't be found"
+    "text": "The page you are looking for couldn't be found",
+    "return": {
+      "text": "Return to service homepage"
+    }
   },
   "partners": {
     "2020": "Children born in 2020"
