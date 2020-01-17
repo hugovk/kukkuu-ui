@@ -105,7 +105,8 @@
     "title": "Welcome to the Culture Kids programme!"
   },
   "footer": {
-    "copyrightText": "© Copyright 2019 • All rights reserved •"
+    "copyrightText": "© Copyright 2019 • All rights reserved •",
+    "accessibilityStatement": "Accessibility statement"
   },
   "home": {
     "contact": {
