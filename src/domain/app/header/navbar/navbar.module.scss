@@ -1,40 +1,40 @@
-@import "colors";
-@import "layout";
-@import "mixins";
-@import "variables";
+@import 'colors';
+@import 'layout';
+@import 'mixins';
+@import 'variables';
 
 $logoHeight: 2.5rem;
 $logoWidth: 5.5rem;
 
 .navbarTop {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    @include respond-below(sm) {
-        padding: 0 $basePadding;
-    }
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  @include respond-below(sm) {
+    padding: 0 $basePadding;
+  }
 }
 
 .logoWrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-  
+
 .appName {
-    margin-left: 30px;
+  margin: 0 0 0 30px;
 }
 
 .logo {
-    @include helsinki-logo($hel-black);
-    background-position: center;
-    height: $logoHeight;
-    width: $logoWidth;
+  @include helsinki-logo($hel-black);
+  background-position: center;
+  height: $logoHeight;
+  width: $logoWidth;
 }
 
 .languageWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
 }

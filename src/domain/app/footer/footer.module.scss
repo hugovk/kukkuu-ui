@@ -42,3 +42,10 @@ $logoWidth: 5rem;
     color: $footerGray;
   }
 }
+
+.accessibilityStatement {
+  margin: $baseMargin 0;
+  a {
+    color: $footerGray;
+  }
+}

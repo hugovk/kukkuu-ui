@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Formik, FieldArray } from 'formik';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useHistory, Redirect } from 'react-router-dom';
@@ -14,8 +14,6 @@ import InputField from '../../../common/components/form/fields/input/InputField'
 import SelectField from '../../../common/components/form/fields/select/SelectField';
 import submitChildrenAndGuardianMutation from '../mutations/submitChildrenAndGuardianMutation';
 import { resetFormValues, setFormValues } from '../state/RegistrationActions';
-import { RegistrationFormValues } from '../types/RegistrationTypes';
-import { StoreState } from '../../app/types/AppTypes';
 import { initialFormDataSelector } from './RegistrationFormSelectors';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
@@ -31,34 +29,22 @@ import { getCurrentLanguage } from '../../../common/translation/TranslationUtils
 import { getSupportedChildData } from '../../child/ChildUtils';
 import { userHasProfileSelector } from '../state/RegistrationSelectors';
 import CheckHasProfile from '../../profile/CheckHasProfile';
-import { normalizeProfileDataFromMutation } from '../../profile/ProfileUtils';
+// eslint-disable-next-line max-len
+import { submitChildrenAndGuardian as SubmitChildrenAndGuardianData } from '../../api/generatedTypes/submitChildrenAndGuardian';
 import { saveProfile } from '../../profile/state/ProfileActions';
-import { ProfileType } from '../../profile/type/ProfileTypes';
 
-interface Props {
-  resetFormValues: () => void;
-  setFormValues: (values: RegistrationFormValues) => void;
-  initialValues: RegistrationFormValues;
-  userHasProfile: boolean;
-  saveProfile: (profile: ProfileType) => void;
-}
-
-const RegistrationForm: FunctionComponent<Props> = ({
-  resetFormValues,
-  setFormValues,
-  initialValues,
-  userHasProfile,
-  saveProfile,
-}) => {
-  // TODO: Do something with the data we get from the backend.
-  const [submitChildrenAndGuardian] = useMutation(
-    submitChildrenAndGuardianMutation
-  );
+const RegistrationForm: FunctionComponent = () => {
   const { i18n, t } = useTranslation();
   const currentLocale = getCurrentLanguage(i18n);
   const history = useHistory();
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
+  const userHasProfile = useSelector(userHasProfileSelector);
+  const initialValues = useSelector(initialFormDataSelector);
+  const [submitChildrenAndGuardian] = useMutation<
+    SubmitChildrenAndGuardianData
+  >(submitChildrenAndGuardianMutation);
   // For new users preferLanguage defaults to their chosen UI language.
   initialValues.preferLanguage = initialValues.preferLanguage || currentLocale;
 
@@ -100,7 +86,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
             }}
             onSubmit={values => {
               setFormIsFilling(false);
-              setFormValues(values);
+              dispatch(setFormValues(values));
 
               const backendSupportChildren = values.children.map(child =>
                 getSupportedChildData(child)
@@ -119,10 +105,15 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   guardian: backendSupportGuardian,
                 },
               })
-                .then(result => {
-                  const profile = normalizeProfileDataFromMutation(result);
-                  if (profile) saveProfile(profile);
-                  resetFormValues();
+                .then(response => {
+                  if (response.data?.submitChildrenAndGuardian?.guardian) {
+                    dispatch(
+                      saveProfile(
+                        response.data?.submitChildrenAndGuardian?.guardian
+                      )
+                    );
+                  }
+                  dispatch(resetFormValues());
                   history.push('/registration/success');
                 })
                 .catch(error => {
@@ -207,6 +198,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   </div>
 
                   <EnhancedInputField
+                    id="guardian.phoneNumber"
                     name="guardian.phoneNumber"
                     required={true}
                     label={t(
@@ -221,6 +213,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     <EnhancedInputField
                       type="text"
                       required={true}
+                      id="guardian.firstName"
                       name="guardian.firstName"
                       label={t(
                         'registration.form.guardian.firstName.input.label'
@@ -233,6 +226,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     <EnhancedInputField
                       type="text"
                       required={true}
+                      id="guardian.lastName"
                       name="guardian.lastName"
                       label={t(
                         'registration.form.guardian.lastName.input.label'
@@ -246,6 +240,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
 
                   <EnhancedInputField
                     value={values.preferLanguage}
+                    id="preferLanguage"
                     name="preferLanguage"
                     label={t('registration.form.guardian.language.input.label')}
                     required={true}
@@ -271,6 +266,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   <EnhancedInputField
                     className={styles.agreeBtn}
                     type="checkbox"
+                    id="agree"
                     name="agree"
                     required={true}
                     label={t('registration.form.agree.input.label')}
@@ -294,17 +290,4 @@ const RegistrationForm: FunctionComponent<Props> = ({
   );
 };
 
-const actions = {
-  resetFormValues,
-  setFormValues,
-  saveProfile,
-};
-
-const mapStateToProps = (state: StoreState) => ({
-  initialValues: initialFormDataSelector(state),
-  userHasProfile: userHasProfileSelector(state),
-});
-
-export const UnconnectedRegistrationForm = RegistrationForm;
-
-export default connect(mapStateToProps, actions)(RegistrationForm);
+export default RegistrationForm;

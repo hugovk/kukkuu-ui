@@ -9,7 +9,6 @@ import { profileQuery as ProfileQueryType } from '../api/generatedTypes/profileQ
 import { saveProfile } from './state/ProfileActions';
 import profileQuery from './queries/ProfileQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
-import { normalizeProfileData } from './ProfileUtils';
 import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 import PageWrapper from '../app/layout/PageWrapper';
 import styles from './profile.module.scss';
@@ -20,7 +19,6 @@ const CheckHasProfile: FunctionComponent = () => {
   const locale = getCurrentLanguage(i18n);
 
   const dispatch = useDispatch();
-  let profile;
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error) {
@@ -31,12 +29,9 @@ const CheckHasProfile: FunctionComponent = () => {
       </PageWrapper>
     );
   }
-  if (data && data.myProfile) {
-    profile = normalizeProfileData(data);
-    if (profile) {
-      dispatch(saveProfile(profile));
-      return <Redirect to={`/${locale}/profile`} />;
-    }
+  if (data?.myProfile) {
+    dispatch(saveProfile(data.myProfile));
+    return <Redirect to={`/${locale}/profile`} />;
   }
   return null;
 };

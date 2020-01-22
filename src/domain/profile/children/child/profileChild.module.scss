@@ -3,54 +3,54 @@
 @import 'fonts';
 
 .childWrapper {
-    background: $white;
-    padding: $basePadding;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-bottom: $baseMargin;
-    border:0;
-    width: 100%;
-    text-align: left;
-    align-items: center;
+  background: $white;
+  padding: $basePadding;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: $baseMargin;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  align-items: center;
 }
 
 .child {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    
-    .childIcon {
-        > div {
-            height: $largeMargin;
-            width: $largeMargin;
-        }
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+
+  .childIcon {
+    > div {
+      height: $largeMargin;
+      width: $largeMargin;
+    }
+  }
+
+  .childInfo {
+    margin-left: 1rem;
+    p {
+      text-transform: capitalize;
+      font-size: $font-size-lg;
+      margin: 0;
+      margin-bottom: $baseMargin;
     }
 
-    .childInfo {
-        margin-left: 1rem;
-        p {
-            text-transform: capitalize;
-            font-size: $font-size-lg;
-            margin: 0;
-            margin-bottom: $baseMargin;
-        }
-
-        .childBirthdate {
-            align-items: center;
-            display: inline-flex;
-            > div {
-                margin-right: 0.5rem;
-            }
-        }
+    .childBirthdate {
+      align-items: center;
+      display: inline-flex;
+      > div {
+        margin-right: 0.5rem;
+      }
     }
+  }
 }
 
 .childDetail {
-    display: flex;
-    align-items: center;
-    > div {
-        transform: rotate(-90deg);
-    }
+  display: flex;
+  align-items: center;
+  > div {
+    transform: rotate(-90deg);
+  }
 }

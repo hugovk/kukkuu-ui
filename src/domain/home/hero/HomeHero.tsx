@@ -5,12 +5,14 @@ import styles from './hero.module.scss';
 
 type HomeHero = {
   userHasProfile: boolean;
+  userIsAuthenticated: boolean;
   scrollToForm: () => void;
 };
 
 const HomeHero: React.FunctionComponent<HomeHero> = ({
   userHasProfile,
   scrollToForm,
+  userIsAuthenticated,
 }) => {
   const { t } = useTranslation();
   return (

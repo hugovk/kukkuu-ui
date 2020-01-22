@@ -2,27 +2,27 @@
 @import 'variables';
 
 .selectWrapper {
-    display: flex;
-    flex-direction: column;
-    
-    label {
-        font-size: $font-size-sm;
-        margin-bottom: $baseMargin * 0.25;
-        font-weight: $font-weight-bold;
-    }
-    
-    select {
-        line-height: $inputHeight;
-        background-color: transparent;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background-image: url('../../../assets/icons/svg/angleDown.svg');
-        background-size: $selectIconSize;
-        background-position: calc(100% - 0.5rem) center;
-        background-repeat: no-repeat;        
-        padding: $buttonPadding;
-        padding-right: $selectPadding;
-        border-radius: 0;
-    }
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: $font-size-sm;
+    margin-bottom: $baseMargin * 0.25;
+    font-weight: $font-weight-bold;
+  }
+
+  select {
+    line-height: $inputHeight;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('../../../assets/icons/svg/angleDown.svg');
+    background-size: $selectIconSize;
+    background-position: calc(100% - 0.5rem) center;
+    background-repeat: no-repeat;
+    padding: 0 12px;
+    padding-right: $selectPadding;
+    border-radius: 0;
+  }
 }

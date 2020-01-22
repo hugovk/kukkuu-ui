@@ -6,7 +6,6 @@ import tadaImage from '../../../assets/icons/svg/tada.svg';
 import Button from '../../../common/components/button/Button';
 import Icon from '../../../common/components/icon/Icon';
 import styles from './welcome.module.scss';
-import homeFormStyles from '../../home/form/homePreliminaryForm.module.scss';
 import PageWrapper from '../../app/layout/PageWrapper';
 
 const Welcome: FunctionComponent = () => {
@@ -20,7 +19,7 @@ const Welcome: FunctionComponent = () => {
         <Icon src={tadaImage} className={styles.tada} alt="Tada!" />
         <Button
           onClick={() => history.push('/profile')}
-          className={homeFormStyles.submitButton}
+          className={styles.submitButton}
         >
           {t('common.profile.goToProfile.buttonText')}
         </Button>

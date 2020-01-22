@@ -26,6 +26,7 @@
     "enzyme-to-json": "^3.4.3",
     "formik": "^2.0.3",
     "graphql": "^14.5.8",
+    "hds-core": "^0.4.1",
     "i18next": "^19.0.0",
     "i18next-browser-languagedetector": "^4.0.1",
     "lodash": "^4.17.15",

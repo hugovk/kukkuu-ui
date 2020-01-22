@@ -124,10 +124,10 @@
       },
       "icon": {
         "kid": {
-          "text": "Om barnet bor i Helsingfors och är fött 2020, kan du anmälan hen som fadderbarn och registrera dig i tjänsten."
+          "text": "Om barnet bor i Helsingfors och är fött 2020, kan du anmäla hen som fadderbarn och registrera dig i tjänsten."
         },
         "theater": {
-          "text": "Du kan uppleva trevliga kulturstunder med barnet. Evenemangen har planerats så att de stöder barnens utveckling och välbefinnande."
+          "text": "Du kan uppleva trevliga kulturstundar med barnet. Evenemangen har planerats så att de stöder barnens utveckling och välbefinnande."
         },
         "ticket": {
           "text": "Du får en inbjudan per e-post två gånger om året och kan i tjänsten anmäla dig till de evenemang som bäst passar dig."
@@ -176,7 +176,7 @@
       "heading": "Kulturens fadderbarn",
       "underConstruction": {
         "text": "Välkommen till Kulturens fadderbarn-tjänsten! Tyvärr är registreringen ännu inte öppen. Du kan anmäl ditt barn från den 31 januari 2020.",
-        "heading": "Registeringen börjar 31 januari 2020"
+        "heading": "Registreringen börjar 31 januari 2020"
       }
     },
     "preliminaryForm": {
@@ -391,5 +391,8 @@
     "postalCode": {
       "invalidFormat": "Fel format"
     }
+  },
+  "accessibilityStatement": {
+    "title": "Tillgänglighetsutlåtande"
   }
 }

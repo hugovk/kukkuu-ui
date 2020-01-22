@@ -391,5 +391,8 @@
     "postalCode": {
       "invalidFormat": "Väärä formaatti"
     }
+  },
+  "accessibilityStatement": {
+    "title": "Saavutettavuusseloste"
   }
 }

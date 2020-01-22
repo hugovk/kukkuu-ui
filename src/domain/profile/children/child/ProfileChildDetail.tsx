@@ -26,9 +26,11 @@ const ProfileChildDetail: React.FunctionComponent = () => {
   const guardian = useSelector(profileSelector);
   const history = useHistory();
 
-  const child = useSelector((state: StoreState) =>
+  const childEdge = useSelector((state: StoreState) =>
     childByIdSelector(state, params.childId)
   );
+
+  const child = childEdge?.node;
 
   return (
     <PageWrapper

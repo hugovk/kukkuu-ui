@@ -2,50 +2,52 @@
 @import 'layout';
 @import 'colors';
 .childrenList {
-    .thisYearPartner {
-        p {
-            text-align: left;
-        }
+  .thisYearPartner {
+    p {
+      text-align: left;
     }
+  }
 }
 
 .profileWrapper {
-    display: grid;
-    @include respond-below(md) {
-        padding: 0 $basePadding;
+  display: grid;
+  @include respond-below(md) {
+    padding: 0 $basePadding;
+  }
+  @include respond-above(sm) {
+    grid-template-columns: 1fr 10fr 1fr;
+
+    .profile {
+      grid-column: 2;
     }
-    @include respond-above(sm) {
-        grid-template-columns: 1fr 10fr 1fr;
-        
-        .profile {
-            grid-column: 2;
-        }
-    }
+  }
 }
 
 .wrapper {
-    @include background($hel-light);
+  @include background($hel-light);
 }
 
 .heading {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .addChild {
     align-items: center;
-
-    .addChild {
-        align-items: center;
-        display: inline-flex;
-        span {
-            line-height: $baseLineHeight;
-            margin-right: 5px;
-        }
-        img {
-            transform: rotate(45deg);
-        }
+    display: inline-flex;
+    span {
+      line-height: $baseLineHeight;
+      margin-right: 5px;
     }
-    button.addChild {
-        background: transparent;
-        border: 0;
+    img {
+      transform: rotate(45deg);
     }
-
+  }
+  button.addChild {
+    background: transparent;
+    border: 0;
+    &:focus {
+      outline: 1px solid $focusOutline;
+    }
+  }
 }

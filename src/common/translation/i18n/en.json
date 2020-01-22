@@ -391,5 +391,8 @@
     "postalCode": {
       "invalidFormat": "Invalid format"
     }
+  },
+  "accessibilityStatement": {
+    "title": "Accessibility statement"
   }
 }

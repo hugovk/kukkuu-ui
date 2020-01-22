@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot correctly 1`] = `
+<PageWrapper
+  title="accessibilityStatement.title"
+>
+  <div
+    className="accessibilityStatement"
+  >
+    <Statement
+      lang="fi"
+    />
+  </div>
+</PageWrapper>
+`;

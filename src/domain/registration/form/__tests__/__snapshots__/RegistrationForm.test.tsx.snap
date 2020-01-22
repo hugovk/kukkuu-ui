@@ -33,34 +33,7 @@ exports[`renders snapshot correctly 1`] = `
   <MockedProvider
     addTypename={true}
   >
-    <RegistrationForm
-      initialValues={
-        Object {
-          "agree": false,
-          "children": Array [
-            Object {
-              "birthdate": "",
-              "firstName": "",
-              "homeCity": "",
-              "lastName": "",
-              "postalCode": "",
-              "relationship": Object {
-                "type": undefined,
-              },
-            },
-          ],
-          "guardian": Object {
-            "email": "",
-            "firstName": "",
-            "lastName": "",
-            "phoneNumber": "",
-          },
-          "preferLanguage": "",
-          "verifyInformation": false,
-        }
-      }
-      setFormValues={[MockFunction]}
-    />
+    <RegistrationForm />
   </MockedProvider>
 </ContextProvider>
 `;

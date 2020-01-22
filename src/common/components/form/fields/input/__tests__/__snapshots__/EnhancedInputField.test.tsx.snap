@@ -2,6 +2,7 @@
 
 exports[`EnhancedInputField  render normally 1`] = `
 <Field
+  aria-required={true}
   id="bar"
   name="foo"
   required={true}

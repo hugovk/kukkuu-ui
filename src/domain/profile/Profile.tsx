@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { Redirect, Switch, Route } from 'react-router-dom';
@@ -9,22 +9,20 @@ import { profileQuery as ProfileQueryType } from '../api/generatedTypes/profileQ
 import { saveProfile } from './state/ProfileActions';
 import profileQuery from './queries/ProfileQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
-import { normalizeProfileData } from './ProfileUtils';
 import ProfileChildDetail from './children/child/ProfileChildDetail';
 import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 import ProfileChildrenList from './children/ProfileChildrenList';
 import PageWrapper from '../app/layout/PageWrapper';
 import styles from './profile.module.scss';
-import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
 
 const Profile: FunctionComponent = () => {
-  const userHasProfile = useSelector(userHasProfileSelector);
-  const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
+  const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery, {
+    fetchPolicy: 'no-cache',
+  });
   const { i18n, t } = useTranslation();
   const locale = getCurrentLanguage(i18n);
 
   const dispatch = useDispatch();
-  let profile;
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error) {
@@ -35,12 +33,9 @@ const Profile: FunctionComponent = () => {
       </PageWrapper>
     );
   }
-  // userHasProfile selector saves us when Apollo cache gives a wrong answer.
-  if (data && (data.myProfile || userHasProfile)) {
-    profile = normalizeProfileData(data);
-    if (profile) {
-      dispatch(saveProfile(profile));
-    }
+
+  if (data?.myProfile) {
+    dispatch(saveProfile(data.myProfile));
   } else {
     // User has logged in, but not created a profile, send them to front page for registration.
     return <Redirect to="/" />;

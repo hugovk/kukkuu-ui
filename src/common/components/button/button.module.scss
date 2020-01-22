@@ -1,11 +1,14 @@
-@import "colors";
+@import 'colors';
 @import 'variables';
 
 .buttonWrapper {
-    button {
-        border: 1px solid $black;
-        color: $black;
-        text-align: center;
-        height: $buttonHeight;
+  button {
+    border: 1px solid $red;
+    color: $black;
+    text-align: center;
+    height: $buttonHeight;
+    &:focus {
+      outline: 1px solid $focusOutline;
     }
+  }
 }

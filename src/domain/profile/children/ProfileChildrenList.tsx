@@ -19,20 +19,14 @@ const ProfileChildrenList: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const children = useSelector(profileChildrenSelector);
   const [isOpen, setIsOpen] = React.useState(false);
-  const [
-    addChild,
-    { loading: mutationLoading, error: mutationError },
-  ] = useMutation(addChildMutation, {
-    refetchQueries: ['profileQuery'],
-  });
+  const [addChild, { loading: mutationLoading }] = useMutation(
+    addChildMutation,
+    {
+      refetchQueries: ['profileQuery'],
+    }
+  );
 
   if (mutationLoading) return <LoadingSpinner isLoading={true} />;
-  if (mutationError) {
-    toast(t('profile.addChildMutation.errorMessage'), {
-      type: toast.TYPE.ERROR,
-    });
-    Sentry.captureException(mutationError);
-  }
 
   return (
     <PageWrapper className={styles.wrapper} title={'profile.heading'}>
@@ -58,7 +52,14 @@ const ProfileChildrenList: React.FunctionComponent = () => {
                 setIsOpen={setIsOpen}
                 addChild={payload => {
                   const supportedChildData = getSupportedChildData(payload);
-                  addChild({ variables: { input: supportedChildData } });
+                  addChild({ variables: { input: supportedChildData } }).catch(
+                    error => {
+                      toast(t('profile.addChildMutation.errorMessage'), {
+                        type: toast.TYPE.ERROR,
+                      });
+                      Sentry.captureException(error);
+                    }
+                  );
                 }}
               />
             )}
@@ -71,9 +72,14 @@ const ProfileChildrenList: React.FunctionComponent = () => {
                   <h2>{t('partners.2020')}</h2>
                   {/* TODO: make me dynamic partners after more data came */}
                 </div>
-                {children.map(child => (
-                  <ProfileChild key={child.id} child={child} />
-                ))}
+                {children.edges.map(childEdge =>
+                  childEdge?.node ? (
+                    <ProfileChild
+                      key={childEdge.node.id}
+                      child={childEdge.node}
+                    />
+                  ) : null
+                )}
               </>
             ) : (
               <div className={styles.noChild}>

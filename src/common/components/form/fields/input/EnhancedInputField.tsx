@@ -22,7 +22,14 @@ const EnhancedInputField: React.FC<Props & FieldAttributes<any>> = ({
       return validate(value);
     }
   };
-  return <Field validate={handleValidation} required={required} {...rest} />;
+  return (
+    <Field
+      validate={handleValidation}
+      required={required}
+      aria-required={required}
+      {...rest}
+    />
+  );
 };
 
 export default EnhancedInputField;

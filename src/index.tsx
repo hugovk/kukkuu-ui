@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Sentry from '@sentry/browser';
 import './assets/styles/main.scss';
+import 'hds-core/lib/helsinki.css';
 import Modal from 'react-modal';
 
 import BrowserApp from './domain/app/BrowserApp';

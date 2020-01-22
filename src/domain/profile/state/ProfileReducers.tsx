@@ -10,7 +10,9 @@ export const defaultProfileData: ProfileType = {
   phoneNumber: '',
   email: '',
   language: null,
-  children: null,
+  children: {
+    edges: [],
+  },
 };
 
 export default createReducer(defaultProfileData, {
